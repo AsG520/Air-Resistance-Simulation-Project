@@ -1,9 +1,14 @@
 import javax.swing.*;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AirResistance {
+    static double DY = 10;
+    static double DX = 190;
+
     public static void main(String[] args) {
-        // double G = 9.8; // gravitational constant on earth
+        double G = 9.8; // gravitational constant on earth
         // double P = 1.225; // air density
         // double MASS = 0.5; // mass of the ball
         // double RADIUS = 0.1; // radius of the ball
@@ -33,6 +38,15 @@ public class AirResistance {
         frame.add(ball);
         frame.add(floor);
 
+        frame.setBackground(Color.black);
         frame.setVisible(true);
+
+        Timer timer = new Timer(10, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                DY += G;
+                ball.setLocation((int) DX, (int) DY);
+            }
+        });
+        timer.start();
     }
 }
