@@ -24,16 +24,17 @@ public class AirResistance {
     static int B_VALUE = 0; // b value of RGB
 
     // ball properties
-    // double P = 1.225; // air density
-    // double MASS = 0.5; // mass of the ball
-    // double RADIU = BALL_WIDTH / 2; // radius of the ball
-    // double CROSS_SECTIONAL_AREA; // cross sectional area of the ball
-    // double CD = 0.47; // drag coefficient
-    // double VY = 0.0; // velocity of the ball in y-direction
+    static double P = 1.225; // air density
+    static double MASS = 0.5; // mass of the ball
+    static double CD = 0.47; // drag coefficient
     static double dx = 190.0; // x-position of the ball
     static double dy = 10.0; // y-position of the ball
     static int WIDTH_BALL = 100; // width of the ball
     static int HEIGHT_BAll = 100; // height of the ball
+    static double RADIUS_BALL = WIDTH_BALL / 2; // radius of the ball
+    static double CROSS_SECTIONAL_AREA = Math.PI * (RADIUS_BALL * RADIUS_BALL); // area of the circle
+
+    // double Fd = 0.5 * P * (vy * vy) * CD * CROSS_SECTIONAL_AREA;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Air Resistance Simulation"); // title of the window
@@ -66,6 +67,9 @@ public class AirResistance {
                 dy += G; // applying gravity to the ball, resulting it to fall down towards the floor
                 ball.setLocation((int) dx, (int) dy); // updating the position of the ball after implementing the effect
                                                       // of gravity
+                if (dy > 322) {
+                    dy = 322;
+                }
             }
         });
         timer.start(); // starts the timer for the animation
