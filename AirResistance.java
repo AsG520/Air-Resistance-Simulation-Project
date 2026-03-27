@@ -9,7 +9,7 @@ public class AirResistance {
     // window properties
     static int WIDTH_WINDOW = 500; // width of the window screen
     static int HEIGHT_WINDOW = 500; // height of the window screen
-    static double G = 9.8; // gravitational constant on earth
+    static double vy = 5;
 
     // floor properties
     static int WIDTH_FLOOR = 500; // width of the floor
@@ -30,11 +30,13 @@ public class AirResistance {
     static double dx = 190.0; // x-position of the ball
     static double dy = 10.0; // y-position of the ball
     static int WIDTH_BALL = 100; // width of the ball
-    static int HEIGHT_BAll = 100; // height of the ball
+    static int HEIGHT_BALL = 100; // height of the ball
     static double RADIUS_BALL = WIDTH_BALL / 2; // radius of the ball
     static double CROSS_SECTIONAL_AREA = Math.PI * (RADIUS_BALL * RADIUS_BALL); // area of the circle
+    static double COR = 0.8; // coefficient of restitution for the ball
 
-    // double Fd = 0.5 * P * (vy * vy) * CD * CROSS_SECTIONAL_AREA;
+    // double Fd = 0.5 * P * (vy * vy) * CD * CROSS_SECTIONAL_AREA; // formula to
+    // calculate the force of drag
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Air Resistance Simulation"); // title of the window
@@ -46,7 +48,7 @@ public class AirResistance {
 
         ImageIcon ballIcon = new ImageIcon("ball.png"); // creating an ImageIcon for the ball
         JLabel ball = new JLabel(ballIcon); // creating a JLabel for the ball
-        ball.setBounds((int) dx, (int) dy, WIDTH_BALL, HEIGHT_BAll); // setting the x-position, y-position, width, and
+        ball.setBounds((int) dx, (int) dy, WIDTH_BALL, HEIGHT_BALL); // setting the x-position, y-position, width, and
                                                                      // height of the ball
 
         JLabel floor = new JLabel(); // creating a JLabel for the floor
@@ -64,12 +66,14 @@ public class AirResistance {
 
         Timer timer = new Timer(TIMER_DELAY, new ActionListener() { // declaration of the timer for animation
             public void actionPerformed(ActionEvent e) {
-                dy += G; // applying gravity to the ball, resulting it to fall down towards the floor
+                if (dy > 322) { // collision contact between the base of the ball and the floor
+                    vy = -vy * COR; // reverses the vertical direction of the ball movement
+                    // 20% of useful energy and 80% of wasted energy
+                }
+
+                dy += vy; // applying gravity to the ball, resulting it to fall down towards the floor
                 ball.setLocation((int) dx, (int) dy); // updating the position of the ball after implementing the effect
                                                       // of gravity
-                if (dy > 322) {
-                    dy = 322;
-                }
             }
         });
         timer.start(); // starts the timer for the animation
