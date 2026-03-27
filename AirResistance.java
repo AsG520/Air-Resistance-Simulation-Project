@@ -9,7 +9,7 @@ public class AirResistance {
     // window properties
     static int WIDTH_WINDOW = 500; // width of the window screen
     static int HEIGHT_WINDOW = 500; // height of the window screen
-    static double vy = 5;
+    static double vy = 5; // Vertical velocity direction for the ball
 
     // floor properties
     static int WIDTH_FLOOR = 500; // width of the floor
