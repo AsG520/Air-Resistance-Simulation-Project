@@ -9,7 +9,10 @@ public class AirResistance {
     // window properties
     static int WIDTH_WINDOW = 500; // width of the window screen
     static int HEIGHT_WINDOW = 500; // height of the window screen
-    static double vy = 5; // Vertical velocity direction for the ball
+    static JFrame frame; // window for the simulation
+    static ImageIcon ballIcon; // icon for the ball
+    static JLabel ball, floor; // ball and floor for the simulation
+    static Timer timer; // timer for the animation
 
     // floor properties
     static int WIDTH_FLOOR = 500; // width of the floor
@@ -19,9 +22,8 @@ public class AirResistance {
     static int TIMER_DELAY = 10; // interval duration of the timer (s)
 
     // color properties
-    static int R_VALUE = 0; // r value of RGB
-    static int G_VALUE = 0; // g value of RGB
-    static int B_VALUE = 0; // b value of RGB
+    static int[] BLACK_COLOR = { 0, 0, 0 }; // r = 0, g = 0, b = 0 makes the color black
+    static int[] WHITE_COLOR = { 255, 255, 255 }; // r = 255, g = 255, b = 255 makes the color white
 
     // ball properties
     static double P = 1.225; // air density
@@ -33,27 +35,35 @@ public class AirResistance {
     static int HEIGHT_BALL = 100; // height of the ball
     static double RADIUS_BALL = WIDTH_BALL / 2; // radius of the ball
     static double CROSS_SECTIONAL_AREA = Math.PI * (RADIUS_BALL * RADIUS_BALL); // area of the circle
-    static double COR = 0.8; // coefficient of restitution for the ball
+    static double COR = 0.6; // coefficient of restitution for the ball
+    static double vy = 0.0; // velocity in the vertical direction for the ball
+    static double GRAVITY = 0.2; // gravitational constant for the simulation
 
-    // double Fd = 0.5 * P * (vy * vy) * CD * CROSS_SECTIONAL_AREA; // formula to
-    // calculate the force of drag
+    // physics properties
+    static double Fg = GRAVITY * MASS; // force of gravity acting on the ball
+    static double Fd = 0.0; // initializating the drag force variable
+    static double fnetX = 0; // force in the horizontal direction
+    static double fnetY = Fg - Fd; // force in the vertical direction
+    static double fnet = fnetX + fnetY; // total net force, sum of x & y forces
+    static double ay = fnet / MASS; // newton 2nd law, to calculate acceleration in the vertical direction
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Air Resistance Simulation"); // title of the window
+        frame = new JFrame("Air Resistance Simulation"); // title of the window
         frame.setSize(WIDTH_WINDOW, HEIGHT_WINDOW); // intalizing windows, width and length value
         frame.setResizable(false); // cannot resize the window
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // allows user to exit, when clicking the 'x' button at
                                                               // the top right of the window
         frame.setLayout(null); // no layout of the window
 
-        ImageIcon ballIcon = new ImageIcon("ball.png"); // creating an ImageIcon for the ball
-        JLabel ball = new JLabel(ballIcon); // creating a JLabel for the ball
+        ballIcon = new ImageIcon("ball.png"); // creating an ImageIcon for the ball
+        ball = new JLabel(ballIcon); // creating a JLabel for the ball
         ball.setBounds((int) dx, (int) dy, WIDTH_BALL, HEIGHT_BALL); // setting the x-position, y-position, width, and
                                                                      // height of the ball
 
-        JLabel floor = new JLabel(); // creating a JLabel for the floor
+        floor = new JLabel(); // creating a JLabel for the floor
         floor.setOpaque(true); // allows the floor to be visible
-        floor.setBackground(new Color(R_VALUE, G_VALUE, B_VALUE)); // black color to the floor (0, 0, 0)
+        floor.setBackground(new Color(WHITE_COLOR[0], WHITE_COLOR[1], WHITE_COLOR[2])); // black color to the floor (0,
+                                                                                        // 0, 0)
         floor.setBounds(X_POSITION_FLOOR, Y_POSITION_FLOOR, WIDTH_FLOOR, HEIGHT_FLOOR); // setting the x-position,
                                                                                         // y-position, width, and height
                                                                                         // of the floor
@@ -61,17 +71,23 @@ public class AirResistance {
         frame.add(ball); // adding ball to the window
         frame.add(floor); // adding floor to the window
 
-        frame.setBackground(Color.black); // background color of the window
+        frame.getContentPane().setBackground(new Color(BLACK_COLOR[0], BLACK_COLOR[1], BLACK_COLOR[2])); // background
+                                                                                                         // color of the
+                                                                                                         // window
         frame.setVisible(true); // allows user to see the overall window
 
-        Timer timer = new Timer(TIMER_DELAY, new ActionListener() { // declaration of the timer for animation
+        timer = new Timer(TIMER_DELAY, new ActionListener() { // declaration of the timer for animation
             public void actionPerformed(ActionEvent e) {
-                if (dy > 322) { // collision contact between the base of the ball and the floor
-                    vy = -vy * COR; // reverses the vertical direction of the ball movement
+                if (dy > 328) { // collision contact between the base of the ball and the floor
+                    // vy = -vy * COR; // reverses the vertical direction of the ball movement
                     // 20% of useful energy and 80% of wasted energy
+                    dy = 328; // keeps the ball base on top of the floor, prevents from sinking
+                    vy = 0; // ball at rest
                 }
 
-                dy += vy; // applying gravity to the ball, resulting it to fall down towards the floor
+                vy += ay; // updates velocity with accleration in the vertical direction
+                dy += vy; // updates distance in the vertical direction using the velocity
+                Fd = 0.5 * P * (vy * vy) * CD * CROSS_SECTIONAL_AREA; // formula to calculate the force of drag
                 ball.setLocation((int) dx, (int) dy); // updating the position of the ball after implementing the effect
                                                       // of gravity
             }
