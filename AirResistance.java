@@ -37,15 +37,21 @@ public class AirResistance {
     static double CROSS_SECTIONAL_AREA = Math.PI * (RADIUS_BALL * RADIUS_BALL); // area of the circle
     static double COR = 0.6; // coefficient of restitution for the ball
     static double vy = 0.0; // velocity in the vertical direction for the ball
+    static double vx = 0.0; // velocity in the horizontal direction for the ball
     static double GRAVITY = 0.2; // gravitational constant for the simulation
 
     // physics properties
     static double Fg = GRAVITY * MASS; // force of gravity acting on the ball
-    static double Fd = 0.0; // initializating the drag force variable
-    static double fnetX = 0; // force in the horizontal direction
-    static double fnetY = Fg - Fd; // force in the vertical direction
-    static double fnet = fnetX + fnetY; // total net force, sum of x & y forces
-    static double ay = fnet / MASS; // newton 2nd law, to calculate acceleration in the vertical direction
+    static double Fapp = 0.010; // applied force acting on the ball
+
+    static double FdY = 0.0; // initializating the drag force variable for vertical direction
+    static double FdX = 0.0; // initializating the drag force variable for horizontal direction
+
+    static double fnetX = Fapp - FdX; // force in the horizontal direction
+    static double fnetY = Fg - FdY; // force in the vertical direction
+
+    static double ay = fnetY / MASS; // newton 2nd law, to calculate acceleration in the vertical direction (ay)
+    static double ax = fnetX / MASS; // newton 2nd law, to calculate acceleration in the horizontal direction (ax)
 
     public static void main(String[] args) {
         frame = new JFrame("Air Resistance Simulation"); // title of the window
@@ -79,15 +85,26 @@ public class AirResistance {
         timer = new Timer(TIMER_DELAY, new ActionListener() { // declaration of the timer for animation
             public void actionPerformed(ActionEvent e) {
                 if (dy > 328) { // collision contact between the base of the ball and the floor
-                    // vy = -vy * COR; // reverses the vertical direction of the ball movement
+                    vy = -vy * COR; // reverses the vertical direction of the ball movement
                     // 20% of useful energy and 80% of wasted energy
                     dy = 328; // keeps the ball base on top of the floor, prevents from sinking
-                    vy = 0; // ball at rest
+                    // vy = 0; // ball at rest
                 }
 
-                vy += ay; // updates velocity with accleration in the vertical direction
-                dy += vy; // updates distance in the vertical direction using the velocity
-                Fd = 0.5 * P * (vy * vy) * CD * CROSS_SECTIONAL_AREA; // formula to calculate the force of drag
+                vx += ax; // updates velocity with accleration (ax) in the horizontal direction
+                dx += vx; // updates distance in the horizontal direction using the velocity (vx)
+
+                vy += ay; // updates velocity with accleration (ay) in the vertical direction
+                dy += vy; // updates distance in the vertical direction using the velocity (vy)
+
+                // double vy_absolute_value = Math.abs(vy);
+                // System.out.println("Velocity: " + vy_absolute_value + "m/s");
+
+                FdY = 0.5 * P * CD * CROSS_SECTIONAL_AREA * vy * Math.abs(vy); // formula to calculate the force of drag
+                                                                               // in the vertical direction
+                FdX = 0.5 * P * CD * CROSS_SECTIONAL_AREA * vx + Math.abs(vx); // formula to calculate the force of drag
+                                                                               // in the horizontal direction
+
                 ball.setLocation((int) dx, (int) dy); // updating the position of the ball after implementing the effect
                                                       // of gravity
             }
