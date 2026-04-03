@@ -1,5 +1,3 @@
-Overview
-
 This is a Air Resistance Simulation that will model how air resistance affects the motion of a falling object. The goal is to create a visual program that demonstrates how forces like gravity and drag influence movement over time.
 
 Note: The simulation has not yet been fully complete!
@@ -19,4 +17,3 @@ Planned Features
 - Have applied forces acting in different direction towards the object.
 
 I plan to make a YouTube video that will showcase the physics behide this project, history, and a more deep explanation of the code. This video will help give me a reflection on what I learned and for others who are interested in physics and this simulation.
-
