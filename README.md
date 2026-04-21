@@ -1,6 +1,6 @@
-This is a Air Resistance Simulation that will model how air resistance affects the motion of a falling object. The goal is to create a visual program that demonstrates how forces like gravity and drag influence movement over time.
+Air Resistance Simulation
 
-Note: The simulation has not yet been fully complete!
+This is a Air Resistance Simulation that will model how air resistance affects the motion of a falling object. The goal is to create a visual program that demonstrates how forces like gravity and drag influence movement over time.
 
 Purpose
 - Understand how air resistance affects the overall motion.
