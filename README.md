@@ -1,6 +1,6 @@
 # Air Resistance Simulation
 
-This is a Air Resistance Simulation that will model how air resistance affects the motion of a falling object. The goal is to create a visual program that demonstrates how forces like gravity and drag influence movement over time.
+This is a Air Resistance Simulation that will model how air resistance affects the motion of a falling object. The goal is to create a visual program that demonstrates how forces like gravity, applied force, and drag influence movement over time.
 
 Features in Simulation
 - A ball that falls under gravity.
@@ -18,7 +18,7 @@ Requirements
 - Java (JDK 8 or higher).
 - IDE (e.g., VS Code, Eclipse, or IntelliJ).
 - Image files:
-  i) ball.png
+  1) ball.png
 
 How to Run
   1. Copy the code into a Java file named "AirResistance.java".
