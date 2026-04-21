@@ -18,7 +18,7 @@ Requirements
 - Java (JDK 8 or higher).
 - IDE (e.g., VS Code, Eclipse, or IntelliJ).
 - Image files:
-i) ball.png
+  i) ball.png
 
 How to Run
   1. Copy the code into a Java file named "AirResistance.java".
