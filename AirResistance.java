@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+// public class
 public class AirResistance {
     // window properties
     static int WIDTH_WINDOW = 500; // width of the window screen
@@ -53,6 +54,7 @@ public class AirResistance {
     static double ay = fnetY / MASS; // newton 2nd law, to calculate acceleration in the vertical direction (ay)
     static double ax = fnetX / MASS; // newton 2nd law, to calculate acceleration in the horizontal direction (ax)
 
+    // main method
     public static void main(String[] args) {
         frame = new JFrame("Air Resistance Simulation"); // title of the window
         frame.setSize(WIDTH_WINDOW, HEIGHT_WINDOW); // intalizing windows, width and length value
@@ -83,10 +85,10 @@ public class AirResistance {
         frame.setVisible(true); // allows user to see the overall window
 
         timer = new Timer(TIMER_DELAY, new ActionListener() { // declaration of the timer for animation
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) { // public void actionPerformed method
                 if (dy > 328) { // collision contact between the base of the ball and the floor
                     vy = -vy * COR; // reverses the vertical direction of the ball movement
-                    // 20% of useful energy and 80% of wasted energy
+                    // 20% of useful energy and 80% of wasted energys
                     dy = 328; // keeps the ball base on top of the floor, prevents from sinking
                     // vy = 0; // ball at rest
                 }
@@ -96,9 +98,6 @@ public class AirResistance {
 
                 vy += ay; // updates velocity with accleration (ay) in the vertical direction
                 dy += vy; // updates distance in the vertical direction using the velocity (vy)
-
-                // double vy_absolute_value = Math.abs(vy);
-                // System.out.println("Velocity: " + vy_absolute_value + "m/s");
 
                 FdY = 0.5 * P * CD * CROSS_SECTIONAL_AREA * vy * Math.abs(vy); // formula to calculate the force of drag
                                                                                // in the vertical direction
