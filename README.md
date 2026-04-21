@@ -1,7 +1,5 @@
 # Air Resistance Simulation
 
-This is a Air Resistance Simulation that will model how air resistance affects the motion of a falling object. The goal is to create a visual program that demonstrates how forces like gravity, applied force, and drag influence movement over time.
-
 Features in Simulation
 - A ball that falls under gravity.
 - Air resistance affecting both in vertical and horizontal directions.
@@ -11,8 +9,10 @@ Features in Simulation
 - Have applied forces acting in different direction towards the object.
 
 Physics Concepts in Simulation
+- (Will Add Soon!).
 
 How it Works
+- (Will Add Soon!).
 
 Requirements
 - Java (JDK 8 or higher).
