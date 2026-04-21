@@ -1,4 +1,4 @@
-Air Resistance Simulation
+# Air Resistance Simulation
 
 This is a Air Resistance Simulation that will model how air resistance affects the motion of a falling object. The goal is to create a visual program that demonstrates how forces like gravity and drag influence movement over time.
 
