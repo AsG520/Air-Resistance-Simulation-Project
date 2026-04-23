@@ -39,3 +39,5 @@ How to Run
   4. Run the program: "java AirResistance".
 
 I plan to make a YouTube video that will showcase the physics behide this project, history, and a more deep explanation of the code. This video will help give me a reflection on what I learned and for others who are interested in physics and this simulation :D.
+
+Video Link of Simulating Air Resistance in Java (YouTube) - [Coming Soon!].
