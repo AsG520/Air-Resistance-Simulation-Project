@@ -101,7 +101,7 @@ public class AirResistance {
 
                 FdY = 0.5 * P * CD * CROSS_SECTIONAL_AREA * vy * Math.abs(vy); // formula to calculate the force of drag
                                                                                // in the vertical direction
-                FdX = 0.5 * P * CD * CROSS_SECTIONAL_AREA * vx + Math.abs(vx); // formula to calculate the force of drag
+                FdX = 0.5 * P * CD * CROSS_SECTIONAL_AREA * vx * Math.abs(vx); // formula to calculate the force of drag
                                                                                // in the horizontal direction
 
                 ball.setLocation((int) dx, (int) dy); // updating the position of the ball after implementing the effect
