@@ -12,7 +12,13 @@ Physics Concepts in Simulation
 - (Will Add Soon!).
 
 How it Works
-- (Will Add Soon!).
+- The program initializes variables like air density, mass, coefficient of drag, velocities, coefficient of restitution, cross sectional area, radius, acceleration, and gravity.
+- It calculates all forces acting on the ball (applied force, horizontal/vertical drag force, force of gravity).
+- Timer updates velocity and position continuously, when motion occurs.
+- When the ball hits the bottom of the screen, it bounces back creating what is known as a collision with energy loss.
+- Forces acting in different directions result the ball to not fall down in straight path.
+- Demonstrates how air resistance and applied force can change motion of the ball within the simulation.
+- Air resistance slows the ball down over period of time.
 
 Requirements
 - Java (JDK 8 or higher).
