@@ -9,7 +9,13 @@ Features in Simulation
 - Have applied forces acting in different direction towards the object.
 
 Physics Concepts in Simulation
-- (Will Add Soon!).
+- Gravity Force (Fg) = m * g.
+- Net Horizontal Force (Fnetx) = Fapp - FdX.
+- Net Vertical Force (Fnety) = FdY - Fg.
+- Horizontal Acceleration (Ax) = Fnetx / m.
+- Vertical Acceleration (Ay) = Fnety / m.
+- Horizontal Drag Force (FdX) = 0.5 * p * Cd * A * (vx * vx).
+- Vertical Drag Force (FdY) = 0.5 * p * Cd * A * (vy * vy).
 
 How it Works
 - The program initializes variables like air density, mass, coefficient of drag, velocities, coefficient of restitution, cross sectional area, radius, acceleration, and gravity.
