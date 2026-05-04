@@ -1,4 +1,4 @@
-# Air Resistance Simulation
+# Air Resistance Simulation Project
 
 Features in Simulation
 - A ball that falls under gravity.
