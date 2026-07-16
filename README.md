@@ -2,7 +2,7 @@
 
 Visual of Simulation
 <br>
-<img width="601" height="610" alt="image" src="https://github.com/user-attachments/assets/dd8da192-82e5-4009-b248-408dd7c3f502" />
+<img width="567" height="577" alt="image" src="https://github.com/user-attachments/assets/dd8da192-82e5-4009-b248-408dd7c3f502" />
 
 Features in Simulation
 - A ball that falls under gravity.
