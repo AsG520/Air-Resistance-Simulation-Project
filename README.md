@@ -1,5 +1,14 @@
 # Air Resistance Simulation Project
 
+## Table of Contents
+- Visual of Simulation
+- Features in Simulation
+- Physics Concepts in Simulation
+- How it Works
+- Requirements
+- How to Run
+- Video Details for Simulation
+
 ## Visual of Simulation
 <img width="567" height="577" alt="image" src="https://github.com/user-attachments/assets/dd8da192-82e5-4009-b248-408dd7c3f502" />
 
