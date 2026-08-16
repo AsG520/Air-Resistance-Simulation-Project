@@ -1,21 +1,22 @@
-# 💨 Air Resistance Simulation Project
+# Air Resistance Simulation Project
 
-## 📘 Table of Contents
-- 🎨 Visual of Simulation
-- 🔥 Features in Simulation
-- 📝 Physics Concepts in Simulation
-- 🛠️ How it Works
-- 🎯 Requirements
-- 💻 How to Run
-- 📹 Video Details for Simulation
+## Table of Contents
+- Video Clip of Simulation
+- Visual of Simulation
+- Features in Simulation
+- Physics Concepts in Simulation
+- How it Works
+- Requirements
+- How to Run
+- Video Details for Simulation
 
-## 🎬 Short Clip of Simulation
+## Video Clip of Simulation
 https://github.com/user-attachments/assets/12c965ad-7032-4f8c-ab10-7bb33e4c5f06
 
-## 🎨 Visual of Simulation
+## Visual of Simulation
 <img width="567" height="577" alt="image" src="https://github.com/user-attachments/assets/dd8da192-82e5-4009-b248-408dd7c3f502" />
 
-## 🔥 Features in Simulation
+## Features in Simulation
 - A ball that falls under gravity.
 - Air resistance affecting both in vertical and horizontal directions.
 - A visible floor at the bottom of the window.
@@ -23,7 +24,7 @@ https://github.com/user-attachments/assets/12c965ad-7032-4f8c-ab10-7bb33e4c5f06
 - Real time animation using a timer.
 - Have applied forces acting in different direction towards the object.
 
-## 📝 Physics Concepts in Simulation
+## Physics Concepts in Simulation
 - Gravity Force (Fg) = m * g.
 - Net Horizontal Force (Fnetx) = Fapp - FdX.
 - Net Vertical Force (Fnety) = FdY - Fg.
@@ -32,7 +33,7 @@ https://github.com/user-attachments/assets/12c965ad-7032-4f8c-ab10-7bb33e4c5f06
 - Horizontal Drag Force (FdX) = 0.5 * p * Cd * A * (vx * vx).
 - Vertical Drag Force (FdY) = 0.5 * p * Cd * A * (vy * vy).
 
-## 🛠️ How it Works
+## How it Works
 - The program initializes variables like air density, mass, coefficient of drag, velocities, coefficient of restitution, cross sectional area, radius, acceleration, and gravity.
 - It calculates all forces acting on the ball (applied force, horizontal/vertical drag force, force of gravity).
 - Timer updates velocity and position continuously, when motion occurs.
@@ -41,19 +42,19 @@ https://github.com/user-attachments/assets/12c965ad-7032-4f8c-ab10-7bb33e4c5f06
 - Demonstrates how air resistance and applied force can change motion of the ball within the simulation.
 - Air resistance slows the ball down over period of time.
 
-## 🎯 Requirements
+## Requirements
 - Java (JDK 8 or higher).
 - IDE (e.g., VS Code, Eclipse, or IntelliJ).
 - Image files:
   1) ball.png
 
-## 💻 How to Run
+## How to Run
   1. Copy the code into a Java file named "AirResistance.java".
   2. Make sure the image file is in the same directory, or else the ball won't appear in the following window.
   3. Compile the program: "javac AirResistance.java".
   4. Run the program: "java AirResistance".
 
-## 📹 Video Details for Simulation
+## Video Details for Simulation
 I plan to make a YouTube video that will showcase the physics behide this project, history, and a more deep explanation of the code. This video will help give me a reflection on what I learned and for others who are interested in physics and this simulation :D.
 
 Video Link of Simulating Air Resistance in Java (YouTube) - [Coming Soon!].
